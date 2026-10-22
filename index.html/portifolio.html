@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayhan Aditya | Digital Marketing & SMM Strategist</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0B0B0C',
+                            card: '#141416',
+                            border: '#2A1F22',
+                            red: '#E60023',
+                            crimson: '#FF1E42',
+                            deepRed: '#A00018',
+                            darkRed: '#50000C',
+                            subtext: '#A0A0A8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        display: ['Syne', 'sans-serif'],
+                        signature: ['Reenie Beanie', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@600;700;800&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            background-color: #0B0B0C;
+            color: #E2E8F0;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Large Hero Background Outline Text */
+        .stroke-text {
+            -webkit-text-stroke: 2px #33080F;
+            color: transparent;
+            letter-spacing: -0.02em;
+            transition: all 0.5s ease;
+        }
+
+        .stroke-text:hover {
+            -webkit-text-stroke: 2px #E60023;
+            text-shadow: 0 0 30px rgba(230, 0, 35, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0B0C;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2A1F22;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #E60023;
+        }
+
+        /* Red Glass Overlay & Cards */
+        .crimson-card {
+            background: rgba(20, 20, 22, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(230, 0, 35, 0.15);
+        }
+        .crimson-card:hover {
+            border-color: rgba(230, 0, 35, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(230, 0, 35, 0.15);
+        }
+
+        .red-highlight-card {
+            background: linear-gradient(145deg, #B8001C 0%, #66000F 100%);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .signature-font {
+            font-family: 'Reenie Beanie', cursive;
+        }
+
+        /* Custom Range Input */
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #FF1E42;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 30, 66, 0.8);
+        }
+    </style>
+</head>
+<body class="selection:bg-brand-red selection:text-white overflow-x-hidden antialiased">
+
+    <!-- Top Navigation Header -->
+    <header class="w-full border-b border-brand-border/80 bg-brand-dark/95 backdrop-blur-md sticky top-0 z-40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-red animate-ping"></span>
+                <span class="text-xs sm:text-sm font-bold tracking-widest uppercase text-slate-200 font-display">
+                    DIGITAL MARKETING & SMM STRATEGIST
+                </span>
+            </div>
+
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold tracking-wider text-slate-400">
+                <a href="#projects" class="hover:text-brand-crimson transition-colors uppercase">Campaigns</a>
+                <a href="#skills" class="hover:text-brand-crimson transition-colors uppercase">Skills & Process</a>
+                <a href="#calculator" class="hover:text-brand-crimson transition-colors uppercase">ROI Calculator</a>
+                <a href="#contact" class="hover:text-brand-crimson transition-colors uppercase">Contact</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-brand-red/10 border border-brand-red/30">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span class="text-[11px] font-bold text-slate-200 tracking-wider uppercase">AVAILABLE FOR FREELANCE</span>
+                </div>
+                <button id="mobileMenuToggle" aria-label="Toggle Mobile Menu" class="md:hidden text-slate-300 hover:text-brand-red">
+                    <i class="fas fa-bars text-lg"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileDrawer" class="hidden md:hidden border-t border-brand-border bg-brand-card px-4 py-4 space-y-3 text-xs uppercase font-bold tracking-wider">
+            <a href="#projects" class="block py-2 text-slate-300 hover:text-brand-red">Campaigns</a>
+            <a href="#skills" class="block py-2 text-slate-300 hover:text-brand-red">Education & Skills</a>
+            <a href="#process" class="block py-2 text-slate-300 hover:text-brand-red">Work Process</a>
+            <a href="#calculator" class="block py-2 text-slate-300 hover:text-brand-red">ROI Calculator</a>
+            <a href="#contact" class="block py-2 text-brand-red">Let's Work Together</a>
+        </div>
+    </header>
+
+    <!-- Hero Section matching reference outline layout -->
+    <section class="relative min-h-[90vh] flex items-center justify-center pt-8 pb-16 overflow-hidden border-b border-brand-border/60">
+        <!-- Background Massive Stroke Text "PORTFOLIO" -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0">
+            <h1 class="stroke-text font-display font-black text-[19vw] leading-none tracking-tighter text-center uppercase">
+                PORTFOLIO
+            </h1>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                
+                <!-- Left Column: Bio Details tailored for SMM & Digital Marketing -->
+                <div class="lg:col-span-5 space-y-4 text-left">
+                    <div>
+                        <span class="signature-font text-3xl sm:text-4xl text-brand-crimson block -mb-2">Hello, I'm</span>
+                        <h1 class="text-5xl sm:text-7xl font-black font-display tracking-tight text-white uppercase leading-none">
+                            BRUK<br/><span class="text-brand-red">TICABO</span>
+                        </h1>
+                    </div>
+
+                    <div class="inline-block px-3 py-1 bg-brand-red/10 border-l-2 border-brand-red text-xs font-bold text-slate-200 uppercase tracking-widest">
+                        DIGITAL MARKETING & SMM STRATEGIST
+                    </div>
+
+                    <p class="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-md font-normal">
+                        I craft data-driven digital marketing and social media campaigns that scale brands, combining creative content with performance analytics. Passionate about conversion funnels, engaging audiences, and driving measurable ROI.
+                    </p>
+
+                    <div class="pt-2 flex items-center space-x-2 text-slate-500 text-xs font-semibold tracking-wider uppercase">
+                        <i class="fas fa-globe text-brand-red"></i>
+                        <span>AVAILABLE WORLDWIDE</span>
+                    </div>
+
+                    <div class="pt-4 flex items-center space-x-4">
+                        <button onclick="openBookingModal()" class="px-6 py-3 bg-brand-red hover:bg-brand-crimson text-white font-display text-xs sm:text-sm tracking-wider uppercase font-bold transition-all shadow-lg shadow-brand-red/20 inline-flex items-center space-x-2">
+                            <span>Book Strategy Session</span>
+                            <i class="fas fa-arrow-right text-xs"></i>
+                        </button>
+                        <a href="#projects" class="px-6 py-3 border border-brand-border hover:border-brand-red text-slate-300 font-display text-xs sm:text-sm tracking-wider uppercase font-bold transition-all">
+                            View Campaigns
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Center Column: Profile Image Cutout with Crimson Frame -->
+                <div class="lg:col-span-4 flex justify-center relative my-8 lg:my-0">
+                    <div class="relative w-72 sm:w-80 lg:w-96 group">
+                        <!-- Glow Aura -->
+                        <div class="absolute -inset-1 bg-gradient-to-b from-brand-red/40 via-brand-crimson/10 to-transparent rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-1000"></div>
+                        
+                        <!-- Portrait Card Frame -->
+                        <div class="relative rounded-2xl overflow-hidden border border-brand-red/30 bg-gradient-to-b from-brand-card to-brand-dark p-2">
+                            <img src="IMG_9200 (1).PNG" 
+                                 alt="Rayhan Aditya - Digital Marketing & SMM Strategist" 
+                                 class="w-full h-[380px] sm:h-[450px] object-cover rounded-xl filter contrast-110 grayscale hover:grayscale-0 transition-all duration-700"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/800x1000/141416/E60023?text=Rayhan+Aditya+SMM';">
+                            
+                            <!-- Floating Badge on Portrait -->
+                            <div class="absolute bottom-6 left-6 right-6 p-4 rounded-xl crimson-card border border-brand-red/30 flex items-center space-x-3 shadow-2xl">
+                                <div class="w-8 h-8 rounded-full bg-brand-red/20 text-brand-crimson flex items-center justify-center text-xs flex-shrink-0">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <p class="text-[11px] text-slate-200 font-medium leading-snug">
+                                    Turning strategy into viral reach & high ROI experiences.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Key Metrics Stack matching screenshot -->
+                <div class="lg:col-span-3 space-y-4">
+                    <div class="p-6 rounded-xl crimson-card border border-brand-border hover:border-brand-red/50 transition-all">
+                        <div class="text-4xl font-display font-black text-brand-red">1+</div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">YEARS EXP</div>
+                    </div>
+
+                    <div class="p-6 rounded-xl crimson-card border border-brand-border hover:border-brand-red/50 transition-all">
+                        <div class="text-4xl font-display font-black text-brand-red">50+</div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">CAMPAIGNS</div>
+                    </div>
+
+                    <div class="p-6 rounded-xl crimson-card border border-brand-border hover:border-brand-red/50 transition-all">
+                        <div class="text-4xl font-display font-black text-brand-red">10+</div>
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-400 mt-1">CLIENTS</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Selected Projects Section -->
+    <section id="projects" class="py-20 border-b border-brand-border/60 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12 border-b border-brand-border pb-4">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-red block mb-1">FEATURED CASE STUDIES</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-black text-white uppercase tracking-tight">SELECTED PROJECTS</h2>
+                </div>
+                <a href="#contact" class="mt-4 sm:mt-0 text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-brand-crimson transition-colors flex items-center space-x-2">
+                    <span>VIEW ALL PROJECTS</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Projects 3-Card Grid with SMM / Paid Ads previews -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Project 01 -->
+                <div class="group rounded-2xl overflow-hidden crimson-card border border-brand-border transition-all duration-500 hover:-translate-y-2 hover:border-brand-red/60 shadow-xl cursor-pointer" onclick="openCaseStudyModal(1)">
+                    <div class="relative overflow-hidden h-60 bg-slate-900">
+                        <img src="Tiktok Logo Design Ideas _ Create Unique Icons for Your Branding(1).jpg" 
+                             alt="Social Media Ad Campaign - Meta & TikTok" 
+                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/141416/E60023?text=Meta+%26+TikTok+Ads';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 px-3 py-1 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                            4.8x ROAS
+                        </div>
+                        <button class="absolute bottom-4 right-4 p-3 bg-brand-red text-white rounded-full hover:bg-brand-crimson transition-transform transform scale-0 group-hover:scale-100 shadow-lg">
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="text-2xl font-display font-black text-brand-red">01</span>
+                            <div>
+                                <h3 class="text-lg font-bold font-display text-white uppercase tracking-wide group-hover:text-brand-crimson transition-colors">SOCIAL MEDIA AD CAMPAIGN</h3>
+                                <p class="text-[11px] font-semibold uppercase text-slate-500">PAID ADS & PERFORMANCE MARKETING</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 02 -->
+                <div class="group rounded-2xl overflow-hidden crimson-card border border-brand-border transition-all duration-500 hover:-translate-y-2 hover:border-brand-red/60 shadow-xl cursor-pointer" onclick="openCaseStudyModal(2)">
+                    <div class="relative overflow-hidden h-60 bg-slate-900">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+                             alt="Digital Marketing Analytics Dashboard" 
+                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/141416/E60023?text=GA4+Marketing+Analytics';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 px-3 py-1 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                            +280% Conversions
+                        </div>
+                        <button class="absolute bottom-4 right-4 p-3 bg-brand-red text-white rounded-full hover:bg-brand-crimson transition-transform transform scale-0 group-hover:scale-100 shadow-lg">
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="text-2xl font-display font-black text-brand-red">02</span>
+                            <div>
+                                <h3 class="text-lg font-bold font-display text-white uppercase tracking-wide group-hover:text-brand-crimson transition-colors">DIGITAL MARKETING ANALYTICS</h3>
+                                <p class="text-[11px] font-semibold uppercase text-slate-500">FUNNEL OPTIMIZATION & DATA ANALYSIS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 03 -->
+                <div class="group rounded-2xl overflow-hidden crimson-card border border-brand-border transition-all duration-500 hover:-translate-y-2 hover:border-brand-red/60 shadow-xl cursor-pointer" onclick="openCaseStudyModal(3)">
+                    <div class="relative overflow-hidden h-60 bg-slate-900">
+                        <img src="IMG_9437 (1).PNG?auto=format&fit=crop&w=800&q=80" 
+                             alt="Content Strategy & Influencer Management" 
+                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700 opacity-80 group-hover:opacity-100"
+                             onerror="this.onerror=null; this.src='https://placehold.co/800x600/141416/E60023?text=Content+%26+Influencer';">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                        <div class="absolute top-4 left-4 px-3 py-1 bg-brand-red text-white text-[10px] font-bold uppercase tracking-wider rounded">
+                            7M+ Organic Views
+                        </div>
+                        <button class="absolute bottom-4 right-4 p-3 bg-brand-red text-white rounded-full hover:bg-brand-crimson transition-transform transform scale-0 group-hover:scale-100 shadow-lg">
+                            <i class="fas fa-arrow-up-right-from-square text-xs"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center space-x-3 mb-2">
+                            <span class="text-2xl font-display font-black text-brand-red">03</span>
+                            <div>
+                                <h3 class="text-lg font-bold font-display text-white uppercase tracking-wide group-hover:text-brand-crimson transition-colors">CONTENT STRATEGY & INFLUENCER</h3>
+                                <p class="text-[11px] font-semibold uppercase text-slate-500">VIRAL REELS, UGC & INFLUENCERS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3-Column Middle Section matching reference layout perfectly -->
+    <section id="skills" class="py-20 border-b border-brand-border/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                
+                <!-- Column 1: Education & Skills Matrix -->
+                <div class="lg:col-span-4 space-y-8">
+                    <div>
+                        <h2 class="text-2xl font-display font-black text-white uppercase tracking-wider mb-6 pb-2 border-b border-brand-border">
+                            EDUCATION & SKILLS
+                        </h2>
+
+                        <!-- Education Timeline -->
+                        <div class="space-y-4">
+                            <span class="text-xs font-bold text-brand-red uppercase tracking-widest block">EDUCATION & CERTIFICATIONS</span>
+                            <div class="border-l border-brand-border pl-4 space-y-4">
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <h4 class="text-sm font-bold text-white">FILM MAKING </h4>
+                                        <span class="text-[10px] text-brand-red font-bold">2020 - 2022</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500">ENDRIYASS FILM COLAGE </p>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between items-center">
+                                        <h4 class="text-sm font-bold text-white">SMM and Ads Certifications</h4>
+                                        <span class="text-[10px] text-brand-red font-bold">2023</span>
+                                    </div>
+                                    <p class="text-xs text-slate-500">Google, Meta Certified Digital Marketer</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing Skill Matrix Tags matching design reference tags -->
+                    <div>
+                        <span class="text-xs font-bold text-brand-red uppercase tracking-widest block mb-4">SKILLS & TECH STACK</span>
+                        <div class="grid grid-cols-2 gap-2" id="skillsTagContainer">
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">SMM</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">META ADS</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">TIKTOK ADS</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">WEBSITE  DEVELOPMENT</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">ANALYTICS </span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">INFLUENCER MGMT</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">COPYWRITING</span>
+                            <span class="p-2.5 bg-brand-card border border-brand-border hover:border-brand-red text-center text-xs font-semibold text-slate-300 rounded transition-colors cursor-pointer">CREATIVE DIRECTION</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Work Process Timeline -->
+                <div id="process" class="lg:col-span-5 space-y-6">
+                    <h2 class="text-2xl font-display font-black text-white uppercase tracking-wider pb-2 border-b border-brand-border">
+                        WORK PROCESS
+                    </h2>
+
+                    <div class="space-y-6 relative pl-2">
+                        <!-- Step 01 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-red font-display font-black text-xl flex-shrink-0">01</div>
+                            <div class="p-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red flex-shrink-0 mt-0.5">
+                                <i class="fas fa-search text-xs w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-red">DISCOVER</h4>
+                                <p class="text-xs text-slate-400 mt-1">Audit, Audience Research, and Competitor Insights Analysis.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 02 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-red font-display font-black text-xl flex-shrink-0">02</div>
+                            <div class="p-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red flex-shrink-0 mt-0.5">
+                                <i class="fas fa-lightbulb text-xs w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-red">STRATEGIZE</h4>
+                                <p class="text-xs text-slate-400 mt-1">Campaign Planning, Funnel Design & Content Mapping.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 03 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-red font-display font-black text-xl flex-shrink-0">03</div>
+                            <div class="p-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red flex-shrink-0 mt-0.5">
+                                <i class="fas fa-pen-nib text-xs w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-red">EXECUTE</h4>
+                                <p class="text-xs text-slate-400 mt-1">Content Creation, Ad Launch & UGC Campaign Setup.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 04 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-red font-display font-black text-xl flex-shrink-0">04</div>
+                            <div class="p-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red flex-shrink-0 mt-0.5">
+                                <i class="fas fa-chart-line text-xs w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-red">ANALYZE</h4>
+                                <p class="text-xs text-slate-400 mt-1">Data Tracking, CPA, CTR & Performance Metrics Evaluation.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 05 -->
+                        <div class="flex items-start space-x-4">
+                            <div class="text-brand-red font-display font-black text-xl flex-shrink-0">05</div>
+                            <div class="p-2 rounded-full bg-brand-red/10 border border-brand-red/30 text-brand-red flex-shrink-0 mt-0.5">
+                                <i class="fas fa-paper-plane text-xs w-4 h-4 flex items-center justify-center"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-bold uppercase tracking-wider text-brand-red">OPTIMIZE</h4>
+                                <p class="text-xs text-slate-400 mt-1">A/B Testing Ad Creatives, Scaling Budget & Retargeting.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 3: Crimson Quote Callout Box matching image reference -->
+                <div class="lg:col-span-3 flex flex-col justify-between p-8 rounded-2xl red-highlight-card shadow-2xl relative overflow-hidden group">
+                    <div class="text-white/20 text-7xl font-serif leading-none select-none">“</div>
+                    <div class="relative z-10 space-y-4">
+                        <p class="text-xl sm:text-2xl font-sans text-white font-normal leading-snug">
+                            Marketing is no longer just about what you make, but about the stories you tell.
+                        </p>
+                        <span class="signature-font text-4xl text-slate-200 block">BRUK</span>
+                    </div>
+
+                    <div class="pt-8 border-t border-white/20 mt-6 relative z-10">
+                        <span class="text-[11px] font-bold tracking-widest text-white/90 uppercase block">LET'S CREATE SOMETHING GREAT TOGETHER.</span>
+                        <div class="mt-2 w-2 h-2 rounded-full bg-white animate-ping"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SMM Interactive ROI Calculator Section -->
+    <section id="calculator" class="py-20 border-b border-brand-border/60 bg-brand-card/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red">CAMPAIGN PERFORMANCE SIMULATOR</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-black text-white uppercase tracking-tight mt-1">
+                    PROJECTED MARKETING RETURN ESTIMATOR
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto mt-2">
+                    Adjust your monthly ad budget slider to calculate projected impressions, click-throughs, and estimated revenue returns.
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto crimson-card p-6 sm:p-10 rounded-2xl border border-brand-border grid grid-cols-1 md:grid-cols-12 gap-8 items-center shadow-2xl">
+                <!-- Inputs Column -->
+                <div class="md:col-span-7 space-y-6">
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <label class="text-xs font-bold uppercase tracking-wider text-slate-300">Monthly Ad Spend Budget ($)</label>
+                            <span id="calcBudgetValue" class="text-xl font-display font-black text-brand-red">$5,000</span>
+                        </div>
+                        <input type="range" id="calcBudgetRange" min="1000" max="50000" step="1000" value="5000" class="w-full h-2 bg-brand-border rounded-lg appearance-none cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-bold uppercase tracking-wider text-slate-300 mb-2">Platform Focus</label>
+                        <select id="calcPlatformSelect" class="w-full px-4 py-3 rounded bg-brand-dark border border-brand-border text-xs font-semibold text-slate-200 outline-none focus:border-brand-red">
+                            <option value="meta">Meta Ads (Instagram & Facebook)</option>
+                            <option value="tiktok">TikTok Ads & Short-form UGC</option>
+                            <option value="omni">Omnichannel Paid & Organic SMM Strategy</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Outputs Column -->
+                <div class="md:col-span-5 p-6 rounded-xl bg-brand-dark border border-brand-border space-y-4">
+                    <div class="text-[11px] font-bold uppercase tracking-widest text-slate-400 border-b border-brand-border pb-2 flex justify-between">
+                        <span>ESTIMATED OUTPUT</span>
+                        <i class="fas fa-calculator text-brand-red"></i>
+                    </div>
+                    
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-slate-500">Projected Reach / Impressions</div>
+                        <div id="resImp" class="text-xl font-display font-black text-white">250,000 - 450,000</div>
+                    </div>
+
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-slate-500">Estimated Revenue Output</div>
+                        <div id="resRev" class="text-2xl font-display font-black text-brand-red">$22,500 - $35,000</div>
+                    </div>
+
+                    <div>
+                        <div class="text-[10px] uppercase font-bold text-slate-500">Target Return On Ad Spend</div>
+                        <div id="resRoas" class="text-xs font-bold text-emerald-400">4.5x - 7.0x ROAS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Let's Work Together Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Column: Contact details matching reference list -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div>
+                        <h2 class="text-4xl sm:text-5xl font-display font-black text-white uppercase tracking-tight">
+                            LET'S WORK<br/><span class="text-brand-red">TOGETHER</span>
+                        </h2>
+                        <p class="text-xs sm:text-sm text-slate-400 mt-2 max-w-md">
+                            I'm currently open for new projects and collaborations. Let's create something amazing that drives results.
+                        </p>
+                    </div>
+
+                    <div class="space-y-4 pt-2 text-xs font-semibold">
+                        <a href="mailto:hello@rayhanaditya.com" class="flex items-center space-x-4 p-4 rounded-xl crimson-card border border-brand-border hover:border-brand-red transition-all group">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-sm">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <span class="text-slate-300 group-hover:text-white">brukticabo@gmail.com</span>
+                        </a>
+
+                        <a href="https://www.rayhanaditya.com" target="_blank" class="flex items-center space-x-4 p-4 rounded-xl crimson-card border border-brand-border hover:border-brand-red transition-all group">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-sm">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <span class="text-slate-300 group-hover:text-white">instagram ~ bruk ticabo.com</span>
+                        </a>
+
+                        <a href="tel:+6281234567890" class="flex items-center space-x-4 p-4 rounded-xl crimson-card border border-brand-border hover:border-brand-red transition-all group">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-sm">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <span class="text-slate-300 group-hover:text-white">+251-996-849-699</span>
+                        </a>
+
+                        <div class="flex items-center space-x-4 p-4 rounded-xl crimson-card border border-brand-border">
+                            <div class="w-10 h-10 rounded-lg bg-brand-red/10 border border-brand-red/30 text-brand-red flex items-center justify-center text-sm">
+                                <i class="fas fa-location-dot"></i>
+                            </div>
+                            <span class="text-slate-300">Ethiopia,adiss abeba</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button onclick="openBookingModal()" class="w-full sm:w-auto px-8 py-4 bg-brand-red hover:bg-brand-crimson text-white font-display text-xs uppercase font-bold tracking-widest transition-all shadow-lg shadow-brand-red/20 inline-flex items-center justify-center space-x-3">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>AVAILABLE FOR FREELANCE & CONSULTING</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Right Column: Laptop Frame Mockup matching bottom right of reference -->
+                <div class="lg:col-span-6 flex justify-center">
+                    <div class="relative w-full max-w-lg">
+                        <div class="p-4 rounded-2xl bg-brand-card border border-brand-border shadow-2xl relative">
+                            <!-- Device Header Dots -->
+                            <div class="rounded-xl overflow-hidden bg-brand-dark border border-brand-border p-2">
+                                <div class="flex items-center space-x-1.5 pb-2 px-1">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-500"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-green-500"></span>
+                                </div>
+                                <div class="h-64 sm:h-72 bg-slate-900 rounded overflow-hidden relative group">
+                                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" 
+                                         alt="WE DESIGN DIGITAL EXPERIENCES Dashboard" 
+                                         class="w-full h-full object-cover filter contrast-125"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/800x600/141416/E60023?text=SMM+Dashboard';">
+                                    
+                                    <div class="absolute inset-0 bg-brand-dark/80 opacity-90 group-hover:opacity-100 transition-opacity flex flex-col items-center justify-center p-6 text-center">
+                                        <span class="px-3 py-1 bg-brand-red/20 border border-brand-red/40 text-brand-crimson text-[10px] font-bold uppercase tracking-widest rounded mb-3">
+                                            LIVE ANALYTICS
+                                        </span>
+                                        <h3 class="text-xl font-display font-black text-white uppercase">WE DESIGN DIGITAL EXPERIENCES</h3>
+                                        <p class="text-xs text-slate-400 mt-2">Data-Driven Growth & Social Media Scaling</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-6 border-t border-brand-border text-center text-xs text-slate-500 uppercase tracking-widest">
+        &copy; <span id="currentYear"></span> RAYHAN ADITYA. ALL RIGHTS RESERVED.
+    </footer>
+
+    <!-- Case Study Interactive Detail Modal -->
+    <div id="caseStudyModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="crimson-card max-w-2xl w-full rounded-2xl overflow-hidden border border-brand-red/40 shadow-2xl relative transform scale-95 transition-transform duration-300" id="caseStudyContainer">
+            <button onclick="closeCaseStudyModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-brand-dark text-slate-300 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                <i class="fas fa-times text-xs"></i>
+            </button>
+            <div class="h-60 relative">
+                <img id="csImg" src="" alt="Case Study Image" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+            </div>
+            <div class="p-6">
+                <span id="csSub" class="text-xs font-bold text-brand-red uppercase tracking-widest"></span>
+                <h3 id="csTitle" class="text-2xl font-display font-black text-white uppercase mt-1"></h3>
+                
+                <div class="grid grid-cols-3 gap-2 my-4 p-3 rounded-lg bg-brand-dark border border-brand-border text-center">
+                    <div>
+                        <div class="text-[10px] uppercase text-slate-500 font-bold">ROAS</div>
+                        <div id="csRoas" class="text-sm font-display font-bold text-brand-red">--</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] uppercase text-slate-500 font-bold">CTR</div>
+                        <div id="csCtr" class="text-sm font-display font-bold text-white">--</div>
+                    </div>
+                    <div>
+                        <div class="text-[10px] uppercase text-slate-500 font-bold">CPC</div>
+                        <div id="csCpc" class="text-sm font-display font-bold text-emerald-400">--</div>
+                    </div>
+                </div>
+
+                <p id="csDesc" class="text-xs text-slate-400 leading-relaxed"></p>
+
+                <div class="mt-6 flex justify-end">
+                    <button onclick="closeCaseStudyModal()" class="px-6 py-2 bg-brand-red text-white font-display text-xs uppercase font-bold tracking-wider hover:bg-brand-crimson transition-colors">Close Case Study</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Booking Strategy Session Modal -->
+    <div id="bookingModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+        <div class="crimson-card max-w-lg w-full rounded-2xl p-6 border border-brand-red/40 shadow-2xl relative transform scale-95 transition-transform duration-300" id="bookingContainer">
+            <button onclick="closeBookingModal()" class="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-brand-dark text-slate-300 flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                <i class="fas fa-times text-xs"></i>
+            </button>
+            <h3 class="text-2xl font-display font-black text-white uppercase">BOOK A STRATEGY SESSION</h3>
+            <p class="text-xs text-slate-400 mt-1">Let's discuss your brand goals and social media scaling roadmap.</p>
+
+            <form id="bookingForm" onsubmit="handleBookingSubmit(event)" class="space-y-4 mt-6">
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Your Name</label>
+                    <input type="text" required placeholder="John Doe" class="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded text-xs text-white outline-none focus:border-brand-red">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Work Email</label>
+                    <input type="email" required placeholder="john@company.com" class="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded text-xs text-white outline-none focus:border-brand-red">
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Monthly Budget Range</label>
+                    <select class="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded text-xs text-white outline-none focus:border-brand-red">
+                        <option>$1,000 - $3,000 / mo</option>
+                        <option>$3,000 - $10,000 / mo</option>
+                        <option>$10,000+ / mo</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-1">Project Details / Goals</label>
+                    <textarea rows="3" required placeholder="Tell me about your current ad accounts or SMM goals..." class="w-full px-3 py-2 bg-brand-dark border border-brand-border rounded text-xs text-white outline-none focus:border-brand-red"></textarea>
+                </div>
+
+                <button type="submit" class="w-full py-3 bg-brand-red hover:bg-brand-crimson text-white font-display text-xs uppercase font-bold tracking-wider transition-colors">
+                    Send Strategy Request
+                </button>
+            </form>
+
+            <div id="bookingSuccessMessage" class="hidden text-center py-8 space-y-3">
+                <div class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl">
+                    <i class="fas fa-check"></i>
+                </div>
+                <h4 class="text-lg font-bold text-white uppercase">REQUEST RECEIVED</h4>
+                <p class="text-xs text-slate-400">Thanks for reaching out! Rayhan will review your campaign details and reply within 24 hours.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Mobile Menu Drawer Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileDrawer = document.getElementById('mobileDrawer');
+        mobileMenuToggle.addEventListener('click', () => {
+            mobileDrawer.classList.toggle('hidden');
+        });
+
+        // ROI Calculator Logic
+        const calcBudgetRange = document.getElementById('calcBudgetRange');
+        const calcBudgetValue = document.getElementById('calcBudgetValue');
+        const calcPlatformSelect = document.getElementById('calcPlatformSelect');
+
+        function updateCalculator() {
+            const spend = parseInt(calcBudgetRange.value);
+            calcBudgetValue.textContent = `$${spend.toLocaleString()}`;
+
+            let mult = 4.8;
+            if (calcPlatformSelect.value === 'tiktok') mult = 5.4;
+            if (calcPlatformSelect.value === 'omni') mult = 6.2;
+
+            const minImp = spend * 60;
+            const maxImp = spend * 100;
+            const minRev = Math.round(spend * (mult * 0.85));
+            const maxRev = Math.round(spend * (mult * 1.25));
+
+            document.getElementById('resImp').textContent = `${(minImp/1000).toFixed(0)}k - ${(maxImp/1000).toFixed(0)}k`;
+            document.getElementById('resRev').textContent = `$${minRev.toLocaleString()} - $${maxRev.toLocaleString()}`;
+            document.getElementById('resRoas').textContent = `${(mult*0.85).toFixed(1)}x - ${(mult*1.25).toFixed(1)}x ROAS`;
+        }
+
+        calcBudgetRange.addEventListener('input', updateCalculator);
+        calcPlatformSelect.addEventListener('change', updateCalculator);
+        updateCalculator();
+
+        // Case Studies Modal Data
+        const caseStudies = {
+            1: {
+                title: "SOCIAL MEDIA AD CAMPAIGN",
+                sub: "Meta & TikTok Performance Ads for E-Commerce",
+                img: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80",
+                roas: "4.8x",
+                ctr: "3.85%",
+                cpc: "$0.42",
+                desc: "Executed a retargeting funnel with dynamic catalog ads and short-form video hooks on TikTok and Instagram, resulting in 4.8x ROAS over 90 days."
+            },
+            2: {
+                title: "DIGITAL MARKETING ANALYTICS",
+                sub: "GA4 Funnel Optimization & Conversion Tracking",
+                img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80",
+                roas: "3.6x",
+                ctr: "4.12%",
+                cpc: "$0.65",
+                desc: "Audited existing traffic channels, eliminated leakages in the signup funnel, and implemented custom GA4 events to boost overall online conversions by +280%."
+            },
+            3: {
+                title: "CONTENT STRATEGY & INFLUENCER",
+                sub: "Viral UGC & Micro-Influencer Management",
+                img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80",
+                roas: "5.2x",
+                ctr: "5.40%",
+                cpc: "$0.28",
+                desc: "Sourced and managed 25+ micro-creators to produce authentic UGC reels, driving over 12 million organic impressions and a steady spike in brand search volume."
+            }
+        };
+
+        const csModal = document.getElementById('caseStudyModal');
+        const csContainer = document.getElementById('caseStudyContainer');
+
+        function openCaseStudyModal(id) {
+            const data = caseStudies[id];
+            if (!data) return;
+            document.getElementById('csImg').src = data.img;
+            document.getElementById('csSub').textContent = data.sub;
+            document.getElementById('csTitle').textContent = data.title;
+            document.getElementById('csRoas').textContent = data.roas;
+            document.getElementById('csCtr').textContent = data.ctr;
+            document.getElementById('csCpc').textContent = data.cpc;
+            document.getElementById('csDesc').textContent = data.desc;
+
+            csModal.classList.remove('hidden');
+            setTimeout(() => {
+                csModal.classList.remove('opacity-0');
+                csContainer.classList.remove('scale-95');
+                csContainer.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeCaseStudyModal() {
+            csModal.classList.add('opacity-0');
+            csContainer.classList.remove('scale-100');
+            csContainer.classList.add('scale-95');
+            setTimeout(() => csModal.classList.add('hidden'), 300);
+        }
+
+        // Booking Modal Logic
+        const bookingModal = document.getElementById('bookingModal');
+        const bookingContainer = document.getElementById('bookingContainer');
+
+        function openBookingModal() {
+            document.getElementById('bookingForm').reset();
+            document.getElementById('bookingForm').classList.remove('hidden');
+            document.getElementById('bookingSuccessMessage').classList.add('hidden');
+
+            bookingModal.classList.remove('hidden');
+            setTimeout(() => {
+                bookingModal.classList.remove('opacity-0');
+                bookingContainer.classList.remove('scale-95');
+                bookingContainer.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeBookingModal() {
+            bookingModal.classList.add('opacity-0');
+            bookingContainer.classList.remove('scale-100');
+            bookingContainer.classList.add('scale-95');
+            setTimeout(() => bookingModal.classList.add('hidden'), 300);
+        }
+
+        function handleBookingSubmit(e) {
+            e.preventDefault();
+            document.getElementById('bookingForm').classList.add('hidden');
+            document.getElementById('bookingSuccessMessage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
